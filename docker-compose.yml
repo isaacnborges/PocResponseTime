@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:     
+    product-api:
+        image: product-api
+        container_name: product-api
+        build:
+            context: ./Products.Api/
+            dockerfile: Dockerfile
+        ports:
+            - "9001:80"
+
+    response-middleware-api:
+        image: response-middleware-api
+        container_name: response-middleware-api
+        build:
+            context: ./ResponseMiddleware.Api/
+            dockerfile: Dockerfile
+        ports:
+          - "9002:80"
+        depends_on:
+            - product-api
