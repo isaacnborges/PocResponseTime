@@ -19,4 +19,4 @@ services:
         ports:
           - "9002:80"
         depends_on:
-            - product-api
+          - product-api
